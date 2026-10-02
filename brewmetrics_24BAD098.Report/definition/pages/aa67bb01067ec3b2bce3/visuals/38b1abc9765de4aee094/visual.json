@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "85a848448234033a0666",
+  "name": "38b1abc9765de4aee094",
   "position": {
-    "x": 132,
-    "y": 276,
+    "x": 602.086494947089,
+    "y": 43.902140256558575,
     "z": 1,
     "height": 184,
     "width": 280,
@@ -56,7 +56,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c1ec2a936060097500d4",
+        "name": "696eaaeb08275442dc73",
         "field": {
           "Measure": {
             "Expression": {
@@ -68,6 +68,41 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "58e67b063c80380ce009",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_sales"
+                  }
+                },
+                "Property": "MoM Growth %"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_sales"
+                      }
+                    },
+                    "Property": "MoM Growth %"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
       }
     ]
   }

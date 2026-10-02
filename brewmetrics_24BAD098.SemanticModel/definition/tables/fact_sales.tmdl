@@ -8,6 +8,23 @@ table fact_sales
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Current Sales Test' =
+			
+			[Total Sales]
+		lineageTag: 92784cb7-70ed-4dd0-b0b0-732d40f87a41
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Previous Sales Test' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    DATEADD(Dim_Date[date], -1, MONTH)
+			)
+		lineageTag: 159ec257-205e-470a-ba27-01ec16fc1411
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	measure 'MoM Growth %' =
 			
 			VAR CurrentSales = [Total Sales]
@@ -21,7 +38,7 @@ table fact_sales
 			        CurrentSales - PreviousSales,
 			        PreviousSales
 			    )
-		lineageTag: 71e4fef9-a8c5-4579-991c-528f2ee08339
+		lineageTag: 38c5279c-ebdf-4be8-980f-c71072ce5770
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -40,11 +57,6 @@ table fact_sales
 		lineageTag: 14605c7f-cb48-4ea8-9223-283ab5b960d4
 		summarizeBy: none
 		sourceColumn: date
-
-		variation Variation
-			isDefault
-			relationship: b11bb9b4-fe07-4484-bde6-7361b2f0dcfa
-			defaultHierarchy: LocalDateTable_f22ec6e6-47c2-46d1-8f77-dc00f38e8ca7.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
