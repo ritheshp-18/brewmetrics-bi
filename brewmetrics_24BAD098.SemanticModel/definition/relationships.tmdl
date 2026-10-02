@@ -11,7 +11,7 @@ relationship 45e4e0c0-42b2-ad74-7bc8-bb8893f9f7a4
 	fromColumn: fact_sales.item
 	toColumn: dim_product.item
 
-relationship 75c755d5-c7ce-6823-a31f-763ed27c7c0c
+relationship b6b8a2dc-63c2-7911-906f-ad68a19fb900
 	fromColumn: fact_sales.date
 	toColumn: dim_date.date
 

@@ -94,9 +94,10 @@ table dim_date
 				        "Day Name",
 				        each Date.DayOfWeekName([date]),
 				        type text
-				    )
+				    ),
+				    #"Changed Type" = Table.TransformColumnTypes(AddDayName,{{"date", type date}})
 				in
-				    AddDayName
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 
