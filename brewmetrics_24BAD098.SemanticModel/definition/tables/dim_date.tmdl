@@ -26,20 +26,11 @@ table dim_date
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Month number'
-		dataType: int64
-		formatString: 0
-		lineageTag: 684eab2f-a9d0-47f6-b4de-a426722cb7bb
-		summarizeBy: sum
-		sourceColumn: Month number
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Month Name'
+	column Month
 		dataType: string
-		lineageTag: 8fbe44df-a560-485e-9055-3e0cc24d02cf
+		lineageTag: 684eab2f-a9d0-47f6-b4de-a426722cb7bb
 		summarizeBy: none
-		sourceColumn: Month Name
+		sourceColumn: Month
 
 		annotation SummarizationSetBy = Automatic
 
@@ -51,23 +42,61 @@ table dim_date
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Month number'
+		dataType: int64
+		formatString: 0
+		lineageTag: a3bba9ca-f1c0-4684-91a5-01955369e667
+		summarizeBy: sum
+		sourceColumn: Month number
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_date = m
 		mode: import
 		source =
 				let
-				    Source = fact_sales,
-				    #"Removed Columns" = Table.RemoveColumns(Source,{"sale_id", "city", "store_format", "category", "item", "quantity", "unit_price", "sales_amount"}),
-				    #"Inserted Year" = Table.AddColumn(#"Removed Columns", "Year", each Date.Year([date]), Int64.Type),
-				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([date]), Int64.Type),
-				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Month", "Month Name", each Date.MonthName([date]), type text),
-				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Month Name",{{"Month", "Month number"}}),
-				    #"Inserted Day" = Table.AddColumn(#"Renamed Columns", "Day", each Date.Day([date]), Int64.Type),
-				    #"Removed Columns1" = Table.RemoveColumns(#"Inserted Day",{"Day"}),
-				    #"Inserted Day Name" = Table.AddColumn(#"Removed Columns1", "Day Name", each Date.DayOfWeekName([date]), type text),
-				    #"Removed Duplicates" = Table.Distinct(#"Inserted Day Name", {"date"}),
-				    #"Removed Duplicates1" = Table.Distinct(#"Removed Duplicates", {"date"})
+				    StartDate = #date(2026, 3, 1),
+				    EndDate = #date(2026, 6, 30),
+				    DateList = List.Dates(
+				        StartDate,
+				        Duration.Days(EndDate - StartDate) + 1,
+				        #duration(1, 0, 0, 0)
+				    ),
+				    DateTable = Table.FromList(
+				        DateList,
+				        Splitter.SplitByNothing(),
+				        {"date"}
+				    ),
+				    ChangedType = Table.TransformColumnTypes(
+				        DateTable,
+				        {{"date", type date}}
+				    ),
+				    AddYear = Table.AddColumn(
+				        ChangedType,
+				        "Year",
+				        each Date.Year([date]),
+				        Int64.Type
+				    ),
+				    AddMonthNumber = Table.AddColumn(
+				        AddYear,
+				        "Month number",
+				        each Date.Month([date]),
+				        Int64.Type
+				    ),
+				    AddMonth = Table.AddColumn(
+				        AddMonthNumber,
+				        "Month",
+				        each Date.MonthName([date]),
+				        type text
+				    ),
+				    AddDayName = Table.AddColumn(
+				        AddMonth,
+				        "Day Name",
+				        each Date.DayOfWeekName([date]),
+				        type text
+				    )
 				in
-				    #"Removed Duplicates1"
+				    AddDayName
 
 	annotation PBI_NavigationStepName = Navigation
 
