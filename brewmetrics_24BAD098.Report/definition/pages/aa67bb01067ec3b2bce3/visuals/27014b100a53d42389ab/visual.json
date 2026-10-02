@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "27014b100a53d42389ab",
+  "position": {
+    "x": 775.60447786586815,
+    "y": 744.24580625404064,
+    "z": 8003,
+    "height": 294.771513151179,
+    "width": 280.13746639899284,
+    "tabOrder": 8003
+  },
+  "visual": {
+    "visualType": "listSlicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_sales"
+                    }
+                  },
+                  "Property": "item"
+                }
+              },
+              "queryRef": "fact_sales.item",
+              "nativeQueryRef": "item",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "97c4572909dcc157c4c9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "item"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

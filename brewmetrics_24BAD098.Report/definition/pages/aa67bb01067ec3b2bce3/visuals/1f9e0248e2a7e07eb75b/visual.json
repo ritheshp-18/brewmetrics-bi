@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "1f05969451bd4589733c",
+  "name": "1f9e0248e2a7e07eb75b",
   "position": {
     "x": 1176.9954744972608,
-    "y": 255.05052910953077,
-    "z": 7000,
-    "height": 395.11926230902719,
-    "width": 652.26036952601316,
-    "tabOrder": 7000
+    "y": 666.89441627819929,
+    "z": 8001,
+    "height": 372.12290312702032,
+    "width": 656.44152574092345,
+    "tabOrder": 8001
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_sales"
-                    }
-                  },
-                  "Property": "item"
-                }
-              },
-              "queryRef": "fact_sales.item",
-              "nativeQueryRef": "item",
-              "active": true
-            }
-          ]
-        },
-        "Series": {
           "projections": [
             {
               "field": {
@@ -46,7 +27,8 @@
                 }
               },
               "queryRef": "fact_sales.category",
-              "nativeQueryRef": "category"
+              "nativeQueryRef": "category",
+              "active": true
             }
           ]
         },
@@ -95,7 +77,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SALES BY PRODUCT'"
+                  "Value": "'SALES CONTRIBUTION BY CATEGORY'"
                 }
               }
             }
@@ -108,21 +90,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "6795cc9e00dd3bb901c6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "item"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "9e892b08de4769c830b0",
+        "name": "9c32a804e89b8bd30017",
         "field": {
           "Column": {
             "Expression": {
@@ -136,7 +104,7 @@
         "type": "Categorical"
       },
       {
-        "name": "0a18d862d0a07b3993b9",
+        "name": "ae3c4a1770269c0897dc",
         "field": {
           "Measure": {
             "Expression": {
