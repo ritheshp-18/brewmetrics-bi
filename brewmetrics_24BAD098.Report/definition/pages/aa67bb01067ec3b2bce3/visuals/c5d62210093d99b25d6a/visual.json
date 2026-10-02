@@ -4,10 +4,10 @@
   "position": {
     "x": 45.992718364013747,
     "y": 255.05052910953077,
-    "z": 5,
+    "z": 5000,
     "height": 395.11926230902719,
-    "width": 554.00319847562014,
-    "tabOrder": 5
+    "width": 631.35458845146138,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineChart",
@@ -40,6 +40,36 @@
               "queryRef": "dim_date.date.Variation.Date Hierarchy.Month",
               "nativeQueryRef": "date Month",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "dim_date.Year",
+              "nativeQueryRef": "Year",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "Day Name"
+                }
+              },
+              "queryRef": "dim_date.Day Name",
+              "nativeQueryRef": "Day Name",
+              "active": false
             }
           ]
         },
@@ -100,20 +130,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "5939f06bd2281709013a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "Total Sales"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "077dc9ea4b427110b10c",
         "field": {
@@ -333,6 +349,48 @@
             }
           ]
         }
+      },
+      {
+        "name": "f55fc9fed018893eeb62",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "Total Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "827ac87e7ec522413c94",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "Day Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6ce11c9b3c732c04700e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

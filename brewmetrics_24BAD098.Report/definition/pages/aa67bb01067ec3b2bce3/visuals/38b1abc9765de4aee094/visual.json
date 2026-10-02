@@ -4,10 +4,10 @@
   "position": {
     "x": 397.20984041648234,
     "y": 43.902140256558575,
-    "z": 1,
+    "z": 1000,
     "height": 184,
     "width": 280,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -55,20 +55,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "696eaaeb08275442dc73",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "MoM Growth %"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "58e67b063c80380ce009",
         "field": {

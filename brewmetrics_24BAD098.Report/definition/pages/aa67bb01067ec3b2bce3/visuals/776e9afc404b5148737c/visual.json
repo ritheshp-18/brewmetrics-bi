@@ -4,10 +4,10 @@
   "position": {
     "x": 1553.2995338391916,
     "y": 43.902140256558575,
-    "z": 3,
+    "z": 3000,
     "height": 184,
     "width": 280,
-    "tabOrder": 3
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a12b391e8794daa11205",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "City Sales Rank"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

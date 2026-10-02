@@ -4,10 +4,10 @@
   "position": {
     "x": 775.60447786586815,
     "y": 43.902140256558575,
-    "z": 2,
+    "z": 2000,
     "height": 184,
     "width": 280,
-    "tabOrder": 2
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ef1aa011d05cbec655bc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_sales"
-              }
-            },
-            "Property": "Running Total Sales"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
