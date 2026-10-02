@@ -1,0 +1,75 @@
+table dim_date
+	lineageTag: 69c67b5d-b460-4a75-bd23-dc4f8b853597
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: add2f871-c6d9-4b4a-8429-59dac077a507
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 618eacf1-6fe0-4513-911c-8b155d35f449
+			defaultHierarchy: LocalDateTable_4206ab68-a673-4eee-b565-5879899d9900.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a4522436-6461-4243-87b9-7b3f037e9310
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 684eab2f-a9d0-47f6-b4de-a426722cb7bb
+		summarizeBy: sum
+		sourceColumn: Month number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 8fbe44df-a560-485e-9055-3e0cc24d02cf
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 4e689437-a28d-4265-8f21-f1331cb0568c
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = fact_sales,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"sale_id", "city", "store_format", "category", "item", "quantity", "unit_price", "sales_amount"}),
+				    #"Inserted Year" = Table.AddColumn(#"Removed Columns", "Year", each Date.Year([date]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([date]), Int64.Type),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Month", "Month Name", each Date.MonthName([date]), type text),
+				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Month Name",{{"Month", "Month number"}}),
+				    #"Inserted Day" = Table.AddColumn(#"Renamed Columns", "Day", each Date.Day([date]), Int64.Type),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Inserted Day",{"Day"}),
+				    #"Inserted Day Name" = Table.AddColumn(#"Removed Columns1", "Day Name", each Date.DayOfWeekName([date]), type text),
+				    #"Removed Duplicates" = Table.Distinct(#"Inserted Day Name", {"date"}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Removed Duplicates", {"date"})
+				in
+				    #"Removed Duplicates1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

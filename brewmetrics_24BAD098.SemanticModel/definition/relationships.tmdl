@@ -1,0 +1,22 @@
+relationship b11bb9b4-fe07-4484-bde6-7361b2f0dcfa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_sales.date
+	toColumn: LocalDateTable_f22ec6e6-47c2-46d1-8f77-dc00f38e8ca7.Date
+
+relationship 618eacf1-6fe0-4513-911c-8b155d35f449
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.date
+	toColumn: LocalDateTable_4206ab68-a673-4eee-b565-5879899d9900.Date
+
+relationship 4264becc-81f2-4d41-9fa9-72cf71a4263e
+	fromColumn: fact_sales.city
+	toColumn: dim_date.date
+
+relationship 402767fd-75f8-0d6d-ff23-7ead6ff81ee4
+	fromColumn: fact_sales.city
+	toColumn: dim_city.city
+
+relationship 45e4e0c0-42b2-ad74-7bc8-bb8893f9f7a4
+	fromColumn: fact_sales.item
+	toColumn: dim_product.item
+

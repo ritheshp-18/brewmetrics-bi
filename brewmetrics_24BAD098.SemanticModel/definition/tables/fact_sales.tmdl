@@ -1,0 +1,102 @@
+table fact_sales
+	lineageTag: 794545aa-7a1a-4645-b2bb-eb2959e78c0f
+
+	column sale_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bbb0a5d-32ee-4abe-8da7-23a5f0e845fc
+		summarizeBy: sum
+		sourceColumn: sale_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 14605c7f-cb48-4ea8-9223-283ab5b960d4
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: b11bb9b4-fe07-4484-bde6-7361b2f0dcfa
+			defaultHierarchy: LocalDateTable_f22ec6e6-47c2-46d1-8f77-dc00f38e8ca7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column city
+		dataType: string
+		lineageTag: 7b02ad22-a2d6-4c3a-b1cd-8e965382fcad
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_format
+		dataType: string
+		lineageTag: 9f51e02f-672d-479e-90da-6f26d9b38cf2
+		summarizeBy: none
+		sourceColumn: store_format
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: c9252ba9-b874-4906-922d-89aa9c17636a
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: 34f28565-5d08-4d59-ab55-5616169daf23
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 5902b415-be37-4d96-b5fa-9cc5f1c4704b
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a9ca9a9-063f-4691-b440-b1493ccf09ad
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_amount
+		dataType: double
+		lineageTag: 55735528-17ce-42b9-b6d8-c0a5afbcb2b5
+		summarizeBy: sum
+		sourceColumn: sales_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("E:\bus int\brew\brewmetrics_sales.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"sale_id", Int64.Type}, {"date", type date}, {"city", type text}, {"store_format", type text}, {"category", type text}, {"item", type text}, {"quantity", Int64.Type}, {"unit_price", Int64.Type}, {"sales_amount", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
