@@ -67,6 +67,16 @@ table fact_sales
 		formatString: 0
 		lineageTag: ad32fba9-cf48-4799-bc57-d95b453e082e
 
+	measure 'Average Transaction Value' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    COUNTROWS(Fact_Sales)
+			)
+		lineageTag: faca5f8c-e458-4239-bdc0-70dcd1cac2d1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column sale_id
 		dataType: int64
 		formatString: 0
