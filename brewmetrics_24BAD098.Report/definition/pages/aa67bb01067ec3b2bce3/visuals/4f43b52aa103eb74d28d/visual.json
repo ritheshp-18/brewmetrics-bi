@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "4f43b52aa103eb74d28d",
+  "position": {
+    "x": 45.992718364013747,
+    "y": 0,
+    "z": 8004,
+    "height": 68.989077546020624,
+    "width": 1787.4442818741707,
+    "tabOrder": 8004
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "SA                                                                "
+                  },
+                  {
+                    "value": "      ",
+                    "textStyle": {
+                      "fontFamily": "Comic Sans MS",
+                      "fontSize": "36pt"
+                    }
+                  },
+                  {
+                    "value": "               ",
+                    "textStyle": {
+                      "fontFamily": "Comic Sans MS",
+                      "fontSize": "36pt",
+                      "color": "#808080"
+                    }
+                  },
+                  {
+                    "value": "SALES      ANALYSIS    DASHBOARD",
+                    "textStyle": {
+                      "fontFamily": "DIN",
+                      "fontSize": "36pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

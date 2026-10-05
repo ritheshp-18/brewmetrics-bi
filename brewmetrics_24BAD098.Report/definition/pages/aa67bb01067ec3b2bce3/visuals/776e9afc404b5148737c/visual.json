@@ -3,7 +3,7 @@
   "name": "776e9afc404b5148737c",
   "position": {
     "x": 1553.2995338391916,
-    "y": 43.902140256558575,
+    "y": 83.623124298206818,
     "z": 3000,
     "height": 184,
     "width": 280,
@@ -51,6 +51,62 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CA902C'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ca6a2d8e7e7171d26304",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "City Sales Rank"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

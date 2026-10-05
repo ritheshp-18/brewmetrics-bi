@@ -3,7 +3,7 @@
   "name": "38b1abc9765de4aee094",
   "position": {
     "x": 397.20984041648234,
-    "y": 43.902140256558575,
+    "y": 83.623124298206818,
     "z": 1000,
     "height": 184,
     "width": 280,
@@ -51,6 +51,55 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backgroundFillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#AED669'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#BFD35B'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
@@ -89,6 +138,20 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "4cca4d96eedd1f255d71",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "MoM Growth %"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -3,9 +3,9 @@
   "name": "c5d62210093d99b25d6a",
   "position": {
     "x": 45.992718364013747,
-    "y": 255.05052910953077,
+    "y": 294.771513151179,
     "z": 5000,
-    "height": 395.11926230902719,
+    "height": 374.21348123447547,
     "width": 631.35458845146138,
     "tabOrder": 5000
   },
@@ -119,6 +119,30 @@
               "expr": {
                 "Literal": {
                   "Value": "'SALES TREND BY MONTH '"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

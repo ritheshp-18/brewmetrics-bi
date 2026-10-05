@@ -29,6 +29,32 @@
           }
         }
       }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "titleSize": {
+            "expr": {
+              "Literal": {
+                "Value": "25L"
+              }
+            }
+          }
+        }
+      }
     ]
   }
 }

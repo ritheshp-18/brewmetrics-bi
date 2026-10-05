@@ -3,7 +3,7 @@
   "name": "4b36946ddce4308a1096",
   "position": {
     "x": 775.60447786586815,
-    "y": 255.05052910953077,
+    "y": 294.771513151179,
     "z": 8000,
     "height": 217.42012317533772,
     "width": 280.13746639899284,
@@ -35,5 +35,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e85b73a08db33b711233",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_sales"
+              }
+            },
+            "Property": "city"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
